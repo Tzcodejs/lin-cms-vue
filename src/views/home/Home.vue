@@ -1,11 +1,14 @@
+<!--主页-->
 <template>
   <div style="height:100%;">
     <el-container>
+       <!-- 左侧菜单栏 -->
       <el-aside :width="sideBarWidth">
         <side-bar :isCollapse="isCollapse"
                   class="sidebar"></side-bar>
       </el-aside>
       <el-container>
+        <!-- 页头 -->
         <el-header>
           <div class="operate">
             <i class="iconfont icon-fold"
@@ -138,10 +141,7 @@ export default {
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
+  }
 }
 </script>
 

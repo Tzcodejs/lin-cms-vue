@@ -4,6 +4,7 @@ import homeRouter from './home-router'
 
 const Login = () => import('@/views/login/Login')
 
+// 除了需要新开的登录页其余的都在home路由下
 const routes = [
   {
     path: '',
