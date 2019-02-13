@@ -7,6 +7,7 @@ import Lin1px from '@/base/line/lin-1px'
 
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
 import GlobalMixin from 'lin/mixin/global'
+// 引入指令
 import AuthorizeDirective from 'lin/directives/authorize'
 import filters from 'lin/filter'
 
@@ -28,6 +29,7 @@ Vue.component('lin-1px', Lin1px)
 
 
 Vue.use(GlobalMixin)
+// 使用指令
 Vue.use(AuthorizeDirective)
 
 /* eslint no-unused-vars: 0 */

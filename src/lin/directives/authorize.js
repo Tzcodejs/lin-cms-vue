@@ -1,3 +1,4 @@
+// 自定义auth指令
 import store from '../../store'
 
 function isAllowed(_auth, user, auths) {

@@ -114,6 +114,7 @@ export default {
     },
     // 滑动到顶部
     backTop() {
+      // 该方法ie10、11、Edge不支持
       this.$refs.main.$el.scrollTo({
         top: 0,
         behavior: 'smooth',

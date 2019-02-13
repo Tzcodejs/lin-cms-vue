@@ -1,4 +1,5 @@
 /* eslint-disable func-names */
+// 按钮点击效果
 export default {
   inserted(el, binding) {
     const cl = Array.from(el.classList)
