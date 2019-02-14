@@ -28,11 +28,9 @@
           <app-main ref="appMain"
                     class="app-main"></app-main>
         </el-main>
-        <div class="backTop"
-             v-if="showBackTop">
-          <i class="iconfont icon-top"
-             @click="backTop"></i>
-        </div>
+        <back-top :right="50"
+                  :bottom="50"
+                  :fontSize="18"></back-top>
       </el-container>
     </el-container>
   </div>
@@ -45,6 +43,7 @@ import {
   AppMain,
   ReuseTab,
   MenuTab,
+  BackTop,
 } from '@/components/layout'
 import layoutMixin from 'lin/mixin/layout.js'
 
@@ -64,8 +63,6 @@ export default {
       foldState: false, // 控制左侧菜单栏按键
       upState: false, // 控制历史记录栏按键
       showReuseTab: true, // 是否显示历史记录栏
-      showBackTop: false, // 是否显示回到顶部标识
-      scrollY: 0, // 滚动距离
     }
   },
   mounted() {
@@ -82,8 +79,6 @@ export default {
         _this.isCollapse = false
       }
     }
-    // 监听滑动事件
-    window.addEventListener('scroll', this.handleScroll, true)
   },
   methods: {
     // 控制菜单折叠
@@ -107,19 +102,6 @@ export default {
       this.clientWidth = document.body.clientWidth
       this.$refs.appMain.$el.style.minHeight = `${this.clientHeight - totalHeight}px`
     },
-    // 监听滚轮
-    handleScroll(e) {
-      this.scrollY = e.target.scrollTop
-      this.showBackTop = e.target.scrollTop > 100 // 页面滚动距离大于100的时候显示回到top的标识
-    },
-    // 滑动到顶部
-    backTop() {
-      // 该方法ie10、11、Edge不支持
-      this.$refs.main.$el.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    },
   },
   watch: {
     isCollapse() {
@@ -139,9 +121,7 @@ export default {
     AppMain,
     ReuseTab,
     MenuTab,
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
+    BackTop,
   },
 }
 </script>
@@ -181,7 +161,6 @@ export default {
   overflow: hidden;
 }
 .app-main {
-  height: 100%;
   background: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -189,20 +168,5 @@ export default {
 .el-main {
   overflow-y: auto;
   position: relative;
-}
-.backTop {
-  position: fixed;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  right: 50px;
-  bottom: 50px;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  line-height: 45px;
-  .iconfont {
-    font-size: 18px;
-  }
 }
 </style>
