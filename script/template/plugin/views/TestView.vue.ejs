@@ -1,0 +1,33 @@
+<!-- CONFIG
+---
+<%- configYml %>
+CONFIG -->
+
+<template>
+  <div v-loading="loading">
+    <h1>插件: <%= name %></h1>
+    <test/>
+  </div>
+</template>
+
+<script>
+import Test from '../components/Test'
+
+export default {
+  name: 'TestView',
+  components: {
+    Test,
+  },
+  data() {
+    return {}
+  },
+  computed: {},
+  watch: {},
+  mounted() {},
+  methods: {},
+}
+</script>
+
+<style scoped lang="scss">
+</style>
+
